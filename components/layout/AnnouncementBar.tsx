@@ -1,8 +1,9 @@
 export function AnnouncementBar() {
   return (
-    <div className="border-b border-border bg-bg py-3 text-center">
-      <p className="text-[11px] uppercase tracking-[0.14em] text-muted">
-        Free shipping on orders of $250+
+    <div className="border-b border-white/10 bg-fg py-2.5 text-center">
+      <p className="text-[11px] text-inverse/90">
+        Free shipping on orders of $250+.{" "}
+        <span className="underline underline-offset-2">Details</span>
       </p>
     </div>
   );

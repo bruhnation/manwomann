@@ -6,42 +6,25 @@ type ProductCardProps = {
   price: number;
   imageUrl: string;
   href: string;
-  large?: boolean;
 };
 
-export function ProductCard({
-  name,
-  price,
-  imageUrl,
-  href,
-  large = false,
-}: ProductCardProps) {
+export function ProductCard({ name, price, imageUrl, href }: ProductCardProps) {
   return (
-    <article className={large ? "lg:col-span-2" : undefined}>
+    <article>
       <Link href={href} className="group block">
-        <div
-          className={`relative overflow-hidden bg-border/40 ${
-            large ? "aspect-[4/5] lg:aspect-[16/10]" : "aspect-[4/5]"
-          }`}
-        >
+        <div className="relative aspect-[3/4] overflow-hidden bg-[#efefef]">
           <Image
             src={imageUrl}
             alt={name}
             fill
-            sizes={
-              large
-                ? "(max-width: 1024px) 50vw, 40vw"
-                : "(max-width: 640px) 50vw, 25vw"
-            }
-            className="object-cover transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.02]"
+            sizes="240px"
+            className="object-cover object-top transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.02]"
           />
         </div>
-        <div className="mt-3 flex items-baseline justify-between gap-2">
-          <h3 className="text-[13px] leading-snug text-fg">{name}</h3>
-          <p className="shrink-0 text-[13px] font-medium tabular-nums">
-            ${price}
-          </p>
-        </div>
+        <p className="mt-3 text-[14px] leading-snug text-fg">{name}</p>
+        <p className="mt-1 text-[14px] font-medium tabular-nums text-muted">
+          ${price}
+        </p>
       </Link>
     </article>
   );

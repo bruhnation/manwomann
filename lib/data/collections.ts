@@ -7,13 +7,13 @@ export type Collection = {
   href: string;
 };
 
-/** Collection images from manwomanhome.com homepage HTML */
+/** Man / Woman / Home / Accessories — product photos from manwomanhome.com */
 export const collections: Collection[] = [
   {
     slug: "man",
     label: "Man",
     imageUrl: mwhImage(
-      "//manwomanhome.com/cdn/shop/collections/IMG_7601_grande.jpg?v=1585876815",
+      "//manwomanhome.com/cdn/shop/files/ZD251306_AVO_FB_740x_159408f1-6d90-4269-ad0e-dd271c3f6dc7_1024x.jpg?v=1769544951",
     ),
     href: "/collections/all-mens",
   },
@@ -21,7 +21,7 @@ export const collections: Collection[] = [
     slug: "woman",
     label: "Woman",
     imageUrl: mwhImage(
-      "//manwomanhome.com/cdn/shop/collections/IMG_7599_grande.jpg?v=1585876433",
+      "//manwomanhome.com/cdn/shop/files/SWL-Sabrina-Mini-Dress_1024x.jpg?v=1781034050",
     ),
     href: "/collections/all-womens",
   },
@@ -29,7 +29,7 @@ export const collections: Collection[] = [
     slug: "home",
     label: "Home",
     imageUrl: mwhImage(
-      "//manwomanhome.com/cdn/shop/collections/IMG_7604_grande.jpg?v=1728339936",
+      "//manwomanhome.com/cdn/shop/files/jjxx-jxalmiralinenblendlongdresswvn-white_1_1024x.webp?v=1775061982",
     ),
     href: "/collections/home-body",
   },
@@ -37,7 +37,7 @@ export const collections: Collection[] = [
     slug: "accessories",
     label: "Accessories",
     imageUrl: mwhImage(
-      "//manwomanhome.com/cdn/shop/collections/MWSpring-197_grande.jpg?v=1585877181",
+      "//manwomanhome.com/cdn/shop/files/saltwaterluxeAugustinaSaltMiniDress_1024x.webp?v=1781034088",
     ),
     href: "/collections/home",
   },

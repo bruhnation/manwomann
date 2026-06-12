@@ -13,33 +13,16 @@ const NAV_LINKS = [
 function SearchIcon() {
   return (
     <svg
-      width="18"
-      height="18"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
       aria-hidden
     >
       <circle cx="11" cy="11" r="7" />
       <path d="M20 20L16 16" />
-    </svg>
-  );
-}
-
-function AccountIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      aria-hidden
-    >
-      <circle cx="12" cy="8" r="4" />
-      <path d="M5 20c0-4 3.5-7 7-7s7 3 7 7" />
     </svg>
   );
 }
@@ -94,18 +77,7 @@ function CloseIcon() {
 }
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 60);
-    }
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -116,17 +88,11 @@ export function Header() {
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-[41px] z-40 transition-colors duration-300 ${
-          scrolled
-            ? "border-b border-border bg-bg/95 backdrop-blur-sm"
-            : "border-b border-transparent bg-bg/0 backdrop-blur-none"
-        }`}
-      >
-        <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-6 md:h-16 md:px-10">
+      <header className="fixed inset-x-0 top-[90px] z-40 border-b border-border bg-bg">
+        <div className="mx-auto flex h-[57px] max-w-[1600px] items-center gap-6 px-5 md:px-8">
           <button
             type="button"
-            className={`md:hidden ${scrolled ? "text-fg" : "text-fg md:text-inverse"}`}
+            className="md:hidden"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((open) => !open)}
           >
@@ -135,64 +101,39 @@ export function Header() {
 
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 text-center md:static md:translate-x-0 md:text-left"
+            className="shrink-0 font-serif text-[28px] font-bold leading-none tracking-tight text-fg md:text-[32px]"
           >
-            <span
-              className={`block text-[11px] font-medium leading-tight tracking-[0.18em] transition-colors ${
-                scrolled ? "text-fg" : "text-fg md:text-inverse"
-              }`}
-            >
-              MAN + WOMAN
-            </span>
-            <span
-              className={`block text-[10px] tracking-[0.28em] transition-colors ${
-                scrolled ? "text-muted" : "text-muted md:text-inverse/80"
-              }`}
-            >
-              HOME
-            </span>
+            M+W
           </Link>
 
           <nav
-            className="hidden items-center gap-8 md:flex md:flex-1 md:justify-center"
+            className="hidden flex-1 items-center justify-center gap-10 md:flex"
             aria-label="Main"
           >
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`text-[11px] uppercase tracking-[0.12em] transition-opacity hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fg ${
-                  scrolled ? "text-fg" : "text-fg md:text-inverse"
-                }`}
+                className="text-[15px] text-fg transition-opacity hover:opacity-60"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div
-            className={`flex items-center gap-5 transition-colors ${
-              scrolled ? "text-fg" : "text-fg md:text-inverse"
-            }`}
-          >
+          <div className="ml-auto flex items-center gap-4 md:gap-6">
             <button
               type="button"
+              className="hidden items-center gap-2 text-[15px] text-fg md:flex"
               aria-label="Search"
-              className="hidden transition-opacity hover:opacity-60 md:block"
             >
+              <span>Search</span>
               <SearchIcon />
             </button>
             <button
               type="button"
-              aria-label="Account"
-              className="hidden transition-opacity hover:opacity-60 md:block"
-            >
-              <AccountIcon />
-            </button>
-            <button
-              type="button"
               aria-label="Bag"
-              className="transition-opacity hover:opacity-60"
+              className="text-fg transition-opacity hover:opacity-60"
             >
               <BagIcon />
             </button>
@@ -201,13 +142,13 @@ export function Header() {
       </header>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-30 bg-bg pt-[97px] md:hidden">
-          <nav className="flex flex-col gap-8 px-6 py-10" aria-label="Mobile">
+        <div className="fixed inset-0 z-30 bg-bg pt-[147px] md:hidden">
+          <nav className="flex flex-col gap-6 px-6 py-8" aria-label="Mobile">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-2xl font-medium tracking-tight"
+                className="text-2xl font-medium"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}

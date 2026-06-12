@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f7f7f5;
-  --fg: #1a1a1a;
-  --muted: #6b6b66;
-  --border: #e5e5e0;
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #767676;
+  --border: #e0e0e0;
   --inverse: #ffffff;
 }
 
@@ -15,7 +15,7 @@
   --color-border: var(--border);
   --color-inverse: var(--inverse);
   --font-sans: var(--font-dm-sans);
-  --font-serif: var(--font-instrument-serif);
+  --font-serif: var(--font-libre-baskerville);
 }
 
 body {
